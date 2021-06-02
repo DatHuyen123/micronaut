@@ -1,0 +1,21 @@
+micronaut:
+  application:
+    name: demoTest
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/micronaut?useSSL=false
+    driverClassName: org.postgresql.Driver
+    username: datdv
+    password: 123456
+    dialect: org.hibernate.dialect.PostgreSQL9Dialect
+    maxActiveConnections: 5
+jpa:
+  default:
+    entity-scan:
+      classpath: true
+      packages: 'com.example'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
