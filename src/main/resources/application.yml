@@ -1,6 +1,21 @@
 micronaut:
   application:
     name: demoTest
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      oauth:
+        enabled: true
+    authentication: bearer
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/micronaut?useSSL=false
@@ -19,3 +34,8 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
+        enable_lazy_load_no_trans: true
+endpoints:
+  health:
+    enabled: true
+    details-visible: ANONYMOUS

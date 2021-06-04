@@ -4,14 +4,16 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "books")
-data class Book (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    var id: Long? = 1,
+class Book (
+
     @Column(name = "title" , nullable = true)
     var title: String? = "",
+
     @Column(name = "page")
-    var page: Int? = 0
-        ) {
+    var page: Int? = 0,
+
+    @ManyToOne(fetch = FetchType.LAZY )
+    @JoinColumn(name = "producer_id")
+    var producer: Producer? = null
+): Base() {
 }
