@@ -14,7 +14,7 @@ class User(
     @Column(name = "password")
     var password: String? = "",
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    var role: MutableList<Role> = mutableListOf()
+    @Column(name = "role")
+    var role: String = ""
 ): Base() {
 }

@@ -1,3 +1,4 @@
+/*
 package com.example.config
 
 import io.micronaut.http.HttpRequest
@@ -18,19 +19,23 @@ import io.micronaut.security.filters.SecurityFilterOrderProvider
 import io.micronaut.security.handlers.RejectionHandler
 import io.micronaut.security.rules.SecurityRule
 
-@Filter("/hello","")
+@Filter("/login","")
 class JwtRequestFilter(securityRules: MutableCollection<SecurityRule>?,
                        authenticationFetchers: MutableCollection<AuthenticationFetcher>?,
                        rejectionHandler: RejectionHandler?, securityFilterOrderProvider: SecurityFilterOrderProvider?
-) : /*HttpServerFilter,*/ SecurityFilter(
+) : */
+/*HttpServerFilter,*//*
+ SecurityFilter(
     securityRules, authenticationFetchers, rejectionHandler, securityFilterOrderProvider
 ) {
 
-    /*override fun doFilter(request: HttpRequest<*>?, chain: ServerFilterChain?): Publisher<MutableHttpResponse<*>> {
+    */
+/*override fun doFilter(request: HttpRequest<*>?, chain: ServerFilterChain?): Publisher<MutableHttpResponse<*>> {
         return chain?.proceed(request) ?: Publisher {  }
-    }*/
+    }*//*
+
 
     override fun doFilterOnce(request: HttpRequest<*>?, chain: ServerFilterChain?): Publisher<MutableHttpResponse<*>> {
         return chain?.proceed(request) ?: Publisher {  }
     }
-}
+}*/

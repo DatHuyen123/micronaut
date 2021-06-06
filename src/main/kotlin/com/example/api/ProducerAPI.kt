@@ -10,7 +10,7 @@ import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
-import io.micronaut.security.annotation.Secured
+//import io.micronaut.security.annotation.Secured
 import javax.inject.Inject
 
 //@Secured("isAuthenticated()")

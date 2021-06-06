@@ -1,27 +1,46 @@
 micronaut:
+  server:
+    port: 8080
+    cors:
+      enabled: true
+      configurations:
+        web:
+          allowCredentials: true
+          allowedMethods:
+            - OPTIONS
+            - POST
+            - PUT
+            - GET
+          exposedHeaders:
+            - Access-Control-Allow-Origin
+            - Access-Control-Allow-Headers
+            - Access-Control-Request-Method
+            - Access-Control-Request-Headers
+            - Origin
+            - Cache-Control
+            - Content-Type
+            - Authorization
   application:
     name: demoTest
-  security:
-    enabled: true
-    endpoints:
-      login:
-        enabled: true
-      oauth:
-        enabled: true
-    authentication: bearer
-    token:
-      jwt:
-        enabled: true
-        signatures:
-          secret:
-            generator:
-              secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
+#  security:
+#    enabled: true
+#    endpoints:
+#      oauth:
+#        enabled: true
+#    authentication: bearer
+#    token:
+#      jwt:
+#        enabled: true
+#        signatures:
+#          secret:
+#            generator:
+#              secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/micronaut?useSSL=false
     driverClassName: org.postgresql.Driver
-    username: datdv
-    password: 123456
+    username: postgres
+    password: 1234
     dialect: org.hibernate.dialect.PostgreSQL9Dialect
     maxActiveConnections: 5
 jpa:
@@ -35,7 +54,7 @@ jpa:
           auto: update
         show_sql: true
         enable_lazy_load_no_trans: true
-endpoints:
-  health:
-    enabled: true
-    details-visible: ANONYMOUS
+#endpoints:
+#  health:
+#    enabled: true
+#    details-visible: ANONYMOUS

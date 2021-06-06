@@ -160,7 +160,7 @@
         </dependency>
 
         <!--micronaut security-->
-        <dependency>
+        <!--<dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-security</artifactId>
             <version>1.0.0</version>
@@ -179,7 +179,7 @@
             <groupId>io.micronaut.security</groupId>
             <artifactId>micronaut-security-ldap</artifactId>
             <version>2.3.3</version>
-        </dependency>
+        </dependency>-->
 
         <!--spring framework-->
         <!--<dependency>

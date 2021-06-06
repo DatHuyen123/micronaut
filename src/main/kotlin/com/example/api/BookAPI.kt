@@ -9,7 +9,7 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
-import io.micronaut.security.annotation.Secured
+//import io.micronaut.security.annotation.Secured
 import javax.inject.Inject
 
 //@Secured("isAuthenticated()")
@@ -37,8 +37,8 @@ class BookAPI {
         return httpResponse
     }
 
-    @Delete("/delete")
-    fun delete(@Parameter("id") id: Long): Unit {
+    @Delete("/delete/{id}")
+    fun delete(@PathVariable("id") id: Long): Unit {
         bookService.delete(id)
     }
 
