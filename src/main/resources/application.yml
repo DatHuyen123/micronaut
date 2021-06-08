@@ -11,6 +11,7 @@ micronaut:
             - POST
             - PUT
             - GET
+            - DELETE
           exposedHeaders:
             - Access-Control-Allow-Origin
             - Access-Control-Allow-Headers
@@ -22,25 +23,30 @@ micronaut:
             - Authorization
   application:
     name: demoTest
-#  security:
-#    enabled: true
-#    endpoints:
-#      oauth:
-#        enabled: true
-#    authentication: bearer
-#    token:
-#      jwt:
-#        enabled: true
-#        signatures:
-#          secret:
-#            generator:
-#              secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
+    intercept-url-map:
+      -
+        pattern: "/api/admin/**"
+        http-method: POST
+        access:
+          - isAnonymous()
+      - pattern: "/api/admin/**"
+        http-method: GET
+        access:
+          - isAnonymous()
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/micronaut?useSSL=false
     driverClassName: org.postgresql.Driver
-    username: postgres
-    password: 1234
+    username: datdv
+    password: 123456
     dialect: org.hibernate.dialect.PostgreSQL9Dialect
     maxActiveConnections: 5
 jpa:

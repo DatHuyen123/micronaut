@@ -9,16 +9,19 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 //import io.micronaut.security.annotation.Secured
 import javax.inject.Inject
 
-//@Secured("isAuthenticated()")
-@Controller("/api/book")
+//@Secured(SecurityRule.IS_AUTHENTICATED)
+@Controller("/api/admin/book")
 class BookAPI {
 
     @Inject
     lateinit var bookService: BookService
 
+    @Secured("ROLE_USER")
     @Get("/get-all")
     fun getAll(): List<Book> {
         var books: Iterable<Book> = bookService.findAll()

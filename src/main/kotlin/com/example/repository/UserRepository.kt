@@ -8,7 +8,9 @@ import org.hibernate.annotations.Parameter
 
 @Repository
 interface UserRepository: CrudRepository<User , Long> {
-    fun findByUsername(username: String): User
+
+    @Query("SELECT u.* FROM users u WHERE u.username = :username" , nativeQuery = true)
+    fun findByUsername(username: String): User?
 
     @Query("SELECT u FROM users u WHERE u.name LIKE :name" , nativeQuery = true)
     fun findByName(name: String): List<User>
