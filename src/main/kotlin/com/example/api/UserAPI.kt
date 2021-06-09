@@ -44,6 +44,13 @@ class UserAPI {
         return httpResponse
     }
 
+    @Get("/find-one/{userId}" , consumes = [MediaType.APPLICATION_JSON], processes = [MediaType.APPLICATION_JSON])
+    fun findOne(@PathVariable("userId") id: Long): HttpResponse<Any> {
+        val httpResponse: HttpResponse<Any>
+        httpResponse = HttpResponse.status<Any>(HttpStatus.OK).body(userService.findOne(id))
+        return httpResponse
+    }
+
     @Secured("ROLE_ADMIN")
     @Delete("/delete/{userId}")
     fun delete(@PathVariable("userId") id: Long): Unit {

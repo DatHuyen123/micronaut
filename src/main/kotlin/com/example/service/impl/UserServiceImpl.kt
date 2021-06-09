@@ -40,4 +40,8 @@ class UserServiceImpl: UserService {
         var users: List<User> = userRepository.findByName(userSearchDTO.name)
         return userMapper.convertToListDTO(users)
     }
+
+    override fun findOne(id: Long): UserDTO {
+        return userMapper.convertToDTO(userRepository.findById(id).get())
+    }
 }

@@ -29,6 +29,8 @@ micronaut:
       jwt:
         signatures:
           secret:
+            refresh-token:
+              secret: pleaseChangeThisSecretForANewOne
             generator:
               secret: naoseiquequeeuvootaaquimaiquiinfernoessecagulotemquesermuitogrande
     intercept-url-map:

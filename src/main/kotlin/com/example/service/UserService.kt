@@ -8,4 +8,5 @@ interface UserService {
     fun getAll(): List<UserDTO>
     fun delete(id: Long): Unit
     fun getAllByCondition(userSearchDTO: UserSearchDTO): List<UserDTO>
+    fun findOne(id: Long): UserDTO
 }
