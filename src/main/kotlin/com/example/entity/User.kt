@@ -14,6 +14,9 @@ class User(
     @Column(name = "password")
     var password: String? = "",
 
+    @Column(name = "age")
+    var age: Int? = 0,
+
     @Column(name = "role")
     var role: String = ""
 ): Base() {

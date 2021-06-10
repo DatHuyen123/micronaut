@@ -51,7 +51,7 @@ class UserAPI {
         return httpResponse
     }
 
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_USER")
     @Delete("/delete/{userId}")
     fun delete(@PathVariable("userId") id: Long): Unit {
         userService.delete(id)
